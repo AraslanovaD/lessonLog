@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/main.css}">
+	<meta charset="UTF-8">
+	<title>LessonLog</title>
+</head>
+
+<body>
+<header class="container">
+	<div class="header">
+		<div class="links">
+			<a href="/">
+				<b>LessonLog</b>
+			</a>
+		</div>
+		<div class="links">
+			<a href="/students">Ученики</a>
+			<a href="/lessons?time=now">Занятия</a>
+		</div>
+		<div>
+			<form name="logoutForm" th:action="@{/logout}" method="post">
+				<input class="button dark" type="submit" value="Выйти" />
+			</form>
+		</div>
+	</div>
+</header>
+
+	<div class="main">
+		<h3>
+			<span th:text="${student.getName()}">Name</span>
+			<span th:text="${student.getSurname()}">Surname</span>
+		</h3>
+
+		<div class="info">
+			<div class="info-element">
+				<span class="element-top">Телефон</span>
+				<span class="element-bottom" th:text="${student.getPhone()}">+7 (905) 905 90 05</span>
+			</div>
+
+			<div class="info-element">
+				<span class="element-top">Где проводится урок</span>
+				<span class="element-bottom" th:text="${student.getCall()}">Call</span>
+			</div>
+
+			<div class="info-element">
+				<span class="element-top">Откуда появился</span>
+				<span class="element-bottom" th:text="${student.getFound()}">Found</span>
+			</div>
+
+			<div class="info-element">
+				<span class="element-top">Дополнительная информация</span>
+				<span class="element-bottom" th:text="${student.getInfo()}">Info</span>
+			</div>
+
+			<div class="info-element">
+				<a class="element-link" th:href="@{/students/{id}/lessons?time=now(id=${student.getId()})}">Список занятий</a>
+			</div>
+		</div>
+
+		<div class="buttons">
+			<a class="button dark" th:href="@{/students/{id}/edit(id=${student.getId()})}">Изменить</a>
+
+			<form th:method="DELETE" th:action="@{/students/{id}(id=${student.getId()})}">
+				<input class="button light" type="submit" value="Удалить" />
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+<body>
+    
+    <header class="container">
+        <div class="header">
+            <div class="links">
+                <a href="">
+                    <b>LessonLog</b>
+                </a>
+            </div>
+            <div class="links">
+                <a href="#about">О нас</a>
+                <a href="#func">Функционал</a>
+            </div>
+            <div class="links button"> 
+                <a href="/auth/login">Войти</a>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <div class="hero">
+            <h1>Простой и удобный онлайн-журнал для репетитора – легко начать, удобно использовать!</h1>
+            <span>Удобный, надежный и эффективный инструмент для планирования и отслеживания прогресса учеников.</span>
+        </div>
+        
+        <div id="about" class="content">
+	<div class="about">
+            <h3>О нас</h3>
+            <span>
+                Наш сервис – это онлайн-журнал, который поможет вам организовать работу с учениками и планировать занятия. 
+                Экономия времени, удобный доступ к информации с любого устройства – все это в одном месте.
+                Наш онлайн-журнал разработан с учетом всех потребностей репетиторов. 
+                Простой и интуитивный интерфейс позволит вам быстро освоить все функции и начать использовать сервис уже сегодня.
+            </span>
+ 	</div>
+        </div>
+        <div id="func" class="func">
+            <h3>Функционал</h3>
+            <div class="func-elem">
+                <div class="elem">
+                    <img th:src="@{images/student.png}"/>
+                    <span>Быстрое добавление учеников</span>
+                </div>
+                <div class="elem">
+                    <img th:src="@{images/plan.png}"/>
+                    <span>Легкое планирование занятий</span>
+                </div>
+                <div class="elem">
+                    <img th:src="@{images/home.png}"/>
+                    <span>Удобный ввод домашних заданий</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <div class="header">
+            <div>
+                <b>LessonLog</b>
+            </div>
+            <div class="links">
+                <a href="#about">О нас</a>
+                <a href="#func">Функционал</a>
+            </div>
+            
+            <div>
+                Контакты: 
+                <br>
+                support@lessonlog.ru
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

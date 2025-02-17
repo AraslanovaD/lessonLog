@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+
+<body>
+<header class="container">
+    <div class="header">
+        <div class="links">
+            <a href="/">
+                <b>LessonLog</b>
+            </a>
+        </div>
+        <div class="links">
+            <a href="/students">Ученики</a>
+            <a href="/lessons?time=now">Занятия</a>
+        </div>
+        <div>
+            <form name="logoutForm" th:action="@{/logout}" method="post">
+                <input class="button dark" type="submit" value="Выйти" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="main">
+        <h3>
+            <span th:text="${lesson.getLessonDate()}">Дата</span>,
+            <span th:text="${lesson.getLessonStart()}">Начало</span>-<span th:text="${lesson.getLessonEnd()}">Конец</span>
+        </h3>
+
+        <div class="info">
+            <div class="info-element">
+                <span class="element-top">Ученик</span>
+                <a class="element-bottom" th:href="@{/students/{id}(id=${lesson.getStudent().getId()})}">
+                    <span th:text="${lesson.getStudent().getName()+' '+lesson.getStudent().getSurname()}">student
+                    </span>
+                </a>
+            </div>
+
+            <div class="info-element">
+                <span class="element-top">План занятия</span>
+                <span class="element-bottom" th:text="${lesson.getPlan()}">plan</span>
+            </div>
+
+            <div class="info-element">
+                <span class="element-top">Домашнее задание</span>
+                <span class="element-bottom" th:text="${lesson.getHomework()}">homework</span>
+            </div>
+
+            <div class="buttons">
+                <a class="button dark" th:href="@{/lessons/{id}/edit(id=${lesson.getId()})}">Изменить</a>
+                <div>
+                    <form th:method="DELETE" th:action="@{/lessons/{id}(id=${lesson.getId()})}">
+                        <input class="button light" type="submit" value="Удалить" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>

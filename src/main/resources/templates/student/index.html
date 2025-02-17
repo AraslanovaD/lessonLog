@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+
+<body>
+
+<header class="container">
+    <div class="header">
+        <div class="links">
+            <a href="/">
+                <b>LessonLog</b>
+            </a>
+        </div>
+        <div class="links">
+            <a href="/students">Ученики</a>
+            <a href="/lessons?time=now">Занятия</a>
+        </div>
+        <div>
+            <form name="logoutForm" th:action="@{/logout}" method="post">
+                <input class="button dark" type="submit" value="Выйти" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="main">
+        <div class="buttons">
+            <h3>Ученики</h3>
+            <a class="button dark" href="/students/new">Добавить</a>
+        </div>
+        
+<table th:each="student:${students}">
+    <tr>
+        <td>
+            <a th:href="@{/students/{id}(id=${student.getId()})}"
+                th:text="${student.getName()+' '+ student.getSurname()}">Name Surname</a>
+        </td>
+    </tr>
+</table>
+
+
+<!--        <div th:each="student:${students}">
+            <a th:href="@{/students/{id}(id=${student.getId()})}"
+                th:text="${student.getName()+' '+ student.getSurname()}">user</a>
+        </div>
+
+    </div>
+-->
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+<body>
+<header class="container">
+    <div class="header">
+        <div class="links">
+            <a href="/">
+                <b>LessonLog</b>
+            </a>
+        </div>
+        <div class="links">
+            <a href="/students">Ученики</a>
+            <a href="/lessons?time=now">Занятия</a>
+        </div>
+        <div>
+            <form name="logoutForm" th:action="@{/logout}" method="post">
+                <input class="button dark" type="submit" value="Выйти" />
+            </form>
+        </div>
+    </div>
+</header>
+
+    <div class="main">
+        <h3>Изменить данные ученика</h3>
+
+        <form class="info" th:method="put" th:action="@{/students/{id}(id=${student.getId()})}" th:object="${student}">
+            <div class="info-element"> 
+                <label class="element-top" for="name" >Имя</label>
+                <input class="input-text" type="text" th:field="*{name}" id="name"/>
+                <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</div>
+            </div>
+
+            <div class="info-element"> 
+                <label class="element-top" for="surname" >Фамилия</label>
+                <input class="input-text" type="text" th:field="*{surname}" id="surname"/>
+            </div>
+
+            <div class="info-element"> 
+                <label class="element-top" for="phone" >Телефон</label>
+                <input class="input-text" type="text" th:field="*{phone}" id="phone" />
+                <div class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">phone error</div>
+            </div>
+
+            <div class="info-element"> 
+                <label class="element-top" for="call" >Где звонок</label>
+                <input class="input-text" type="text" th:field="*{call}" id="call"/>
+            </div>
+
+            <div class="info-element"> 
+                <label class="element-top" for="found" >Откуда появился</label>
+                <input class="input-text" type="text" th:field="*{found}" id="found"/>
+            </div>
+
+            <div class="info-element"> 
+                <label class="element-top" for="info" >Дополнительная информация</label>
+                <textarea class="input-textarea" th:field="*{info}" id="info"></textarea>
+            </div>
+
+            <div class="buttons">
+                <input class="button dark" type="submit" value="Сохранить">
+                <a class="button light" th:href="@{/students/{id}(id=${student.getId()})}">Отмена</a>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

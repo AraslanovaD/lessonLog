@@ -1,0 +1,61 @@
+.hero{
+
+background-image: url(../images/hero.png);
+background-size: cover;
+
+min-height: 198px;
+overflow:hidden;
+
+padding: 64px 20% 64px 40%;
+margin: 0;
+}
+
+.hero h1{
+    margin: 0px 0 24px;
+    font-size: 36px;
+}
+
+.hero span, .about span, .func span{
+    font-size: 24px;
+}
+
+.content{
+    background-color: #CFE2FF;
+    padding: 64px 0;	
+}
+
+.about{
+    min-height: 234px;
+    overflow:hidden;
+
+    text-align: justify;
+    width: 1040px;
+    margin: 0 auto;
+}
+
+.about h3, .func h3{
+    margin: 0 0 32px;
+    font-size: 36px;
+    text-align: center;
+}
+
+.func{
+    margin: 64px auto;
+    width: 1040px;
+}
+
+.func-elem{
+    display: flex;
+    flex-direction: row;
+
+    gap: 16px;
+}
+
+.elem{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    align-items: center;
+    text-align: center;
+}

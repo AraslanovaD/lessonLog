@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+<body>
+    <header class="container">
+        <div class="header">
+            <div class="links">
+                <a href="/">
+                    <b>LessonLog</b>
+                </a>
+            </div>
+            <div class="links">
+                <a href="/#about">О нас</a>
+                <a href="/#func">Функционал</a>
+            </div>
+            <div class="links button"> 
+                <a href="/auth/login">Войти</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="form">
+        <h3>Регистрация</h3>
+
+        <form method="post" th:action="@{/auth/process_register}" th:object="${teacher}">
+            <div>
+                <label for="email" >Email</label>
+                <input type="text" th:field="*{email}" id="email" required/>
+                <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
+            </div>
+
+            <div>
+                <label for="password" >Пароль</label>
+                <input type="password" th:field="*{password}" id="password" minlength="8" required/>
+                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</div>
+            </div>
+
+            <input class="button" type="submit" value="Регистрация">
+
+        </form>
+    </div>
+
+    <div class="under-form">
+        <span>Уже зарегистрированы? </span>
+        <a href="/auth/login">Войдите</a>
+    </div>
+
+    
+
+</body>
+</html>

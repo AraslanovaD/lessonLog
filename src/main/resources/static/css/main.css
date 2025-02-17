@@ -1,0 +1,166 @@
+.main{
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    padding: 56px;
+    margin: 4px auto 0;
+
+    width: 928px;
+    min-height: 1px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.main h3{
+    margin: 0;
+    font-size: 24px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.info-element{
+    display:flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.element-top{
+    font-size: 16px;
+}
+
+.element-bottom{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.element-link{
+    color: #296ACC;
+}
+
+.element-link:hover{
+    color: #011636;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+}
+
+.button{
+    border-width:0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.light{
+    background-color: #EEF5FF;
+    color: #296ACC;
+}
+
+.light:hover{
+    background-color: #CFE2FF;
+}
+
+.dark{
+    background-color:#296ACC;
+    color: #EEF5FF;
+}
+
+.dark:hover{
+    background-color: #0052CC;
+    color: #ffffff;
+}
+
+.input-text{
+    height: 38px;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color:#011636;
+    font-family: inherit;
+    padding: 0 8px;
+}
+
+.input-textarea{
+    resize: none;
+    
+    height: 78px;
+    padding: 8px 8px;   
+
+    border-radius: 8px;
+    border-width: 1px;
+    border-color:#011636;
+
+    font-family: inherit;
+}
+
+.error{
+    color: #CC2929;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 4px;
+    width: 100%;
+  }
+
+tr{
+    background-color: #EEF5FF;
+}
+
+td{
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 16px 8px;
+
+    border-radius: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #CFE2FF;
+}
+
+.vline {
+    display: inline;
+    border-left: solid #011636;
+    border-width: 1px;
+}
+
+.top{
+    display: flex;
+    gap: 27px;
+}
+
+.top a{
+    text-decoration: none;
+    color: #296ACC;
+}
+
+.top a:hover{
+    color: #011636;
+}
+
+.thead{
+    margin-bottom: 4px;
+}
+
+hr{
+    margin: 0;
+    background-color: #011636; 
+    height: 1px; 
+    border: 0; 
+}
+
+.time{
+    width: 290px;
+}

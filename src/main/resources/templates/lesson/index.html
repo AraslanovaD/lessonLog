@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta charset="UTF-8">
+    <title>LessonLog</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="header">
+            <div class="links">
+                <a href="/">
+                    <b>LessonLog</b>
+                </a>
+            </div>
+            <div class="links">
+                <a href="/students">Ученики</a>
+                <a href="/lessons?time=now">Занятия</a>
+            </div>
+            <div>
+                <form name="logoutForm" th:action="@{/logout}" method="post">
+                    <input class="button dark" type="submit" value="Выйти" />
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="buttons">
+            <h3>Занятия</h3>
+            <a class="button dark" href="/lessons/new">Добавить</a>
+        </div>
+
+        <div>
+            <div class="thead">
+                <div class="top">
+                    <a href="/lessons?time=before">Прошедшие</a>
+                    <div class="vline"></div>
+                    <a href="/lessons?time=now">Сегодня</a>
+                    <div class="vline"></div>
+                    <a href="/lessons?time=after">Запланированные</a>
+                </div>
+                <hr>
+            </div>
+
+            <table th:each="lesson:${lessons}">
+                <tr>
+                    <td>
+                        <a th:href="@{/lessons/{id}(id=${lesson.getId()})}" th:text="${lesson.getLessonDate()+', '
+                                                                    + lesson.getStudent().getName()+' '
+                                                                    +lesson.getStudent().getSurname()}">дата время, имя
+                            фамилия</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!--       <div th:each="lesson:${lessons}">
+            <a th:href="@{/lessons/{id}(id=${lesson.getId()})}" th:text="${lesson.getLessonDate()+', '
+                                                                    + lesson.getStudent().getName()+' '
+                                                                    +lesson.getStudent().getSurname()}">lesson</a>
+        </div>
+
+        <a href="/lessons/new">Добавить занятие</a>
+-->
+    </div>
+</body>
+
+</html>
