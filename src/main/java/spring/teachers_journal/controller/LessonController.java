@@ -80,7 +80,7 @@ public class LessonController {
         lesson.setTeacher(details.getTeacher());
 
         lessonService.save(lesson);
-        return "redirect:/lessons";
+        return "redirect:/lessons?time=now";
     }
 
     @PutMapping("/{id}")
